@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Exercise 7</title>
+    </head>
+
+    <body>
+        <input type="text" id="txt-price" placeholder="Enter the price of the item">
+        <input type="text" id="txt-quantity" placeholder="Enter the quanity of the item">
+        <button id="btn-submit">Calculate</button>
+        <div id="output"></div>
+
+        <script>
+        //Creates a priceInput variable returning the input element for the item price
+        var priceInput = document.getElementById('txt-price');
+        //Creates a quantityInput variable returning the input element for the item quantity
+        var quantityInput = document.getElementById('txt-quantity');
+        //Creates a variable returning the button element for the calculate button
+        var submitBtn = document.getElementById('btn-submit');
+        //Creates a variable returning the div element with the output id
+        var output = document.getElementById('output');
+
+        //When the user clicks on the calculate button, the function executes
+        submitBtn.addEventListener('click', function () {
+            //the price variable stores the value inputted in the textbox by the user
+            var price = priceInput.value;
+            //the quantity variable stores the value inputted in the textbox by the user
+            var quanity = quantityInput.value;
+            price = +price;
+            quanity = +quanity;
+            //Checks if the price or quantity is a valid number
+            if (Number.isNaN(price) || Number.isNaN(quanity)) {
+            //If not, it modifies the div element to return a message to the user
+            output.innerHTML = 'Invalid input';
+            return;
+            }
+            //The total price is the product of the price and quantity
+            var totalPrice = price * quanity;
+            //Rounds the total price in dollars
+            totalPrice = Math.round(totalPrice * 100) / 100;
+            //Modifies the div element to display the cost of the items to the user
+            output.innerHTML = quanity + ' items at $' + price + ' each is $' + totalPrice;
+        });
+        </script>
+    </body>
+</html>
