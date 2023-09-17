@@ -1,0 +1,13 @@
+body{
+    font-family: Georgia, serif;
+    background-color: #eaddce;
+    color:#251a1a;
+}
+
+#main-title{
+    text-align: center;
+}
+
+.content{
+    margin-bottom: 12px;
+}
